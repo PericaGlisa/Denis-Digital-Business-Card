@@ -28,7 +28,7 @@ const C = {
 const UI = {
   sr: {
     langLabel: "Jezik",
-    position: "General Manager",
+    position: "Generalni direktor",
     saveContact: "Sačuvaj Kontakt",
     callPrimary: "Pozovi",
     office: "Kancelarija",
@@ -48,8 +48,8 @@ const UI = {
     phoneCopied: "Broj je kopiran ✓",
     emailCopied: "Email je kopiran ✓",
     shareTitle: "Zlatomir Damnjanović | EKO Elektrofrigo",
-    shareText: "General Manager – EKO Elektrofrigo\nRashladni sistemi • Klimatizacija • CA komore",
-    vcfTitle: "General Manager",
+    shareText: "Generalni direktor – EKO Elektrofrigo\nRashladni sistemi • Klimatizacija • CA komore",
+    vcfTitle: "Generalni direktor",
     vcfNote: "Vaš partner od 1996...",
     vcfFileName: "Zlatomir_Damnjanovic_EKO_SR.vcf",
   },
