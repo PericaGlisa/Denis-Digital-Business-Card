@@ -4,87 +4,130 @@ import { useState, useRef, useCallback } from "react";
    DATA
 ════════════════════════════════════════ */
 const C = {
-  name: "DRAGANA TUFEGDŽIĆ",
-  initials: "DT",
-  position: "Procurement Associate",
-  company: "EKO ELEKTROFRIGO",
-  tagline: "Your partner since 1996...",
-  activities: ["Refrigeration", "Air Conditioning", "CA Rooms"],
-  primaryPhone: "+381648222645",
-  primaryPhoneDisplay: "+381 64 822 26 45",
+  name: "DENIS ĐORĐEVIĆ",
+  initials: "DĐ",
+  company: "EOP.RS",
+  primaryPhone: "+381648222651",
+  primaryPhoneDisplay: "+381 64 822 26 51",
   secondaryPhone: "+381113757288",
   secondaryPhoneDisplay: "+381 11 375 72 88",
-  email: "tufegdzic.dragana@eef.rs",
-  website1: "https://www.eef.rs",
-  website1Display: "www.eef.rs",
-  website2: "https://www.ekoelektrofrigo.rs",
-  website2Display: "www.ekoelektrofrigo.rs",
+  email: "djordjevic.denis@eop.rs",
+  website1: "https://www.eop.rs",
+  website1Display: "www.eop.rs",
   address: "Svetolika Nikačevića 11",
   city: "Zemun, Belgrade",
   maps: "https://www.google.com/maps/search/?api=1&query=Svetolika+Nika%C4%8Devi%C4%87a+11%2C+Zemun%2C+Belgrade",
-  whatsapp: "https://wa.me/381648222645?text=Hello%2C%20I%20got%20your%20contact%20from%20QR%20code.",
+  whatsapp: "https://wa.me/381648222651?text=Hello%2C%20I%20got%20your%20contact%20from%20QR%20code.",
 };
 
 const UI = {
   sr: {
     langLabel: "Jezik",
-    position: "Referent nabavke",
+    position: "Prodajni predstavnik",
+    tagline: "Vaša podrška za savršen espresso...",
+    activities: ["Barista oprema", "Espresso aparati"],
     saveContact: "Sačuvaj Kontakt",
     callPrimary: "Pozovi",
     office: "Kancelarija",
     whatsapp: "WhatsApp",
     email: "Email",
     shareCard: "Podeli Karticu",
-    websites: "Web sajtovi",
+    websites: "Web sajt",
     wholesales: "Veleprodaja",
     openMapsGoogle: "Otvori u Google Maps",
     openMapsApple: "Otvori u Apple Maps",
-    trustField: "B2B HVAC rešenja",
-    trustFast: "Instant kontakt",
+    trustField: "Premium Barista Oprema",
+    trustFast: "Direktan kontakt",
     saveCompatibility: "Kompatibilno sa iOS i Android",
     contactSaved: "Kontakt je sačuvan ✓",
     linkCopied: "Link je kopiran ✓",
     shareNotSupported: "Deljenje nije podržano u ovom browseru",
     phoneCopied: "Broj je kopiran ✓",
     emailCopied: "Email je kopiran ✓",
-    shareTitle: "Dragana Tufegdžić | EKO Elektrofrigo",
-    shareText: "Referent nabavke – EKO Elektrofrigo\nRashladni sistemi • Klimatizacija • CA komore",
-    vcfTitle: "Referent nabavke",
-    vcfNote: "Vaš partner od 1996...",
-    vcfFileName: "Dragana_Tufegdzic_EKO_SR.vcf",
+    shareTitle: "Denis Đorđević | EOP.RS",
+    shareText: "Prodajni predstavnik – EOP.RS\nBarista oprema • Espresso aparati",
+    vcfTitle: "Prodajni predstavnik",
+    vcfNote: "Vaša podrška za savršen espresso...",
+    vcfFileName: "Denis_Djordjevic_EOP_SR.vcf",
   },
   en: {
     langLabel: "Language",
-    position: "Procurement Associate",
+    position: "Sales Representative",
+    tagline: "Your support for the perfect espresso...",
+    activities: ["Barista Tools", "Espresso Machines"],
     saveContact: "Save Contact",
     callPrimary: "Call",
     office: "Office",
     whatsapp: "WhatsApp",
     email: "Email",
     shareCard: "Share This Card",
-    websites: "Websites",
+    websites: "Website",
     wholesales: "Wholesales",
     openMapsGoogle: "Open in Google Maps",
     openMapsApple: "Open in Apple Maps",
-    trustField: "B2B HVAC Solutions",
-    trustFast: "Instant Contact",
+    trustField: "Premium Barista Gear",
+    trustFast: "Direct Contact",
     saveCompatibility: "Compatible with iOS and Android",
     contactSaved: "Contact saved ✓",
     linkCopied: "Link copied ✓",
     shareNotSupported: "Sharing is not supported on this browser",
     phoneCopied: "Phone number copied ✓",
     emailCopied: "Email copied ✓",
-    shareTitle: "Dragana Tufegdžić | EKO Elektrofrigo",
-    shareText: "Procurement Associate – EKO Elektrofrigo\nRefrigeration • Air Conditioning • CA Rooms",
-    vcfTitle: "Procurement Associate",
-    vcfNote: "Your partner since 1996...",
-    vcfFileName: "Dragana_Tufegdzic_EKO_EN.vcf",
+    shareTitle: "Denis Đorđević | EOP.RS",
+    shareText: "Sales Representative – EOP.RS\nBarista Tools • Espresso Machines",
+    vcfTitle: "Sales Representative",
+    vcfNote: "Your support for the perfect espresso...",
+    vcfFileName: "Denis_Djordjevic_EOP_EN.vcf",
   },
 } as const;
 
 /* ════════════════════════════════════════
-   PREMIUM ICONS  (Phosphor-style, 2px stroke, round caps)
+   PREMIUM ICONS  (Barista/Luxury style)
 ════════════════════════════════════════ */
+
+/* Coffee Bean — Brand Logo */
+function IcoBean({ size = 42 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 15a10 10 0 0 1 10-10"/>
+      <path d="M17 9a10 10 0 0 1-10 10"/>
+      <ellipse cx="12" cy="12" rx="9" ry="6" transform="rotate(-45 12 12)"/>
+      <path d="M12 7c.5 1.5 0 3.5-1 5s-1.5 3.5-1 5" opacity="0.6"/>
+    </svg>
+  );
+}
+
+/* Professional Espresso Machine */
+function IcoMachine({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 18h12"/>
+      <path d="M8 22h8"/>
+      <path d="M7 2v16"/>
+      <path d="M17 2v16"/>
+      <path d="M7 6h10"/>
+      <path d="M9 10h6"/>
+      <path d="M12 2v4"/>
+      <circle cx="12" cy="14" r="2"/>
+    </svg>
+  );
+}
+
+/* Coffee Cup / Espresso */
+function IcoCoffee({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+      <line x1="6" y1="1" x2="6" y2="4"/>
+      <line x1="10" y1="1" x2="10" y2="4"/>
+      <line x1="14" y1="1" x2="14" y2="4"/>
+    </svg>
+  );
+}
 
 /* Person with a plus – "Add to Contacts" */
 function IcoUserPlus() {
@@ -162,18 +205,6 @@ function IcoCheck() {
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="20 6 9 17 4 12"/>
-    </svg>
-  );
-}
-
-/* Arrow top-right — external link */
-function IcoExternal() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M15 3h6v6"/>
-      <path d="M10 14 21 3"/>
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
     </svg>
   );
 }
@@ -270,7 +301,6 @@ TEL:${C.primaryPhone}
 TEL:${C.secondaryPhone}
 EMAIL:${C.email}
 URL:${C.website1}
-URL:${C.website2}
 ADR:;;${C.address};Zemun;Belgrade;;
 NOTE:${t.vcfNote}
 END:VCARD`;
@@ -325,8 +355,6 @@ END:VCARD`;
 
   return (
     <>
-      {/* HVAC photo background */}
-      <div className="bg-photo" />
       <div className="bg-overlay" />
       <div className="bg-noise" />
 
@@ -334,11 +362,12 @@ END:VCARD`;
       <div className="card-wrap">
         <div className="card-surface">
 
-          <div className="top-bar" />
-
-          {/* Logo */}
-          <div className="header-zone anim-fade-up d1 signature-reveal">
-            <img src="/eko-logo.png" alt="EKO Elektrofrigo" className="logo-img" />
+          {/* Logo / Brand Mark */}
+          <div className="header-zone anim-fade-up d1">
+            <div className="brand-logo">
+              <IcoBean />
+              <span className="brand-name">EOP.RS</span>
+            </div>
             <div className="lang-switch" role="group" aria-label={t.langLabel}>
               <button
                 className={`lang-btn${lang === "sr" ? " active" : ""}`}
@@ -355,64 +384,46 @@ END:VCARD`;
             </div>
           </div>
 
-          <div className="divider anim-fade-in d1" />
-
           {/* Avatar */}
           <div className="avatar-zone anim-fade-up d2">
             <div className="avatar-ring">
-              <div className="avatar-inner">{C.initials}</div>
+              <div className="avatar-inner font-serif letterpress">{C.initials}</div>
               <span className="avatar-dot" />
             </div>
           </div>
 
           {/* Identity */}
           <div className="identity-zone anim-fade-up d2">
-            <p className="company-kicker">{C.company}</p>
-            <h1 className="name-text">{C.name}</h1>
+            <h1 className="name-text letterpress">
+              <span className="signature-reveal">Denis</span> <span className="font-italic signature-reveal" style={{ animationDelay: '0.2s' }}>Đorđević</span>
+            </h1>
             <p className="position-text">{t.position}</p>
           </div>
-
-          <div className="hero-rail anim-fade-up d3">
-            <a href={C.website1} target="_blank" rel="noopener noreferrer" className="hero-pill">
-              {C.website1Display}
-            </a>
-          </div>
-
-          <div className="trust-strip anim-fade-up d3">
-            <span className="trust-item">{t.trustField}</span>
-            <span className="trust-dot">•</span>
-            <span className="trust-item">{t.trustFast}</span>
-          </div>
-
-          <div className="divider anim-fade-in d3" />
 
           {/* ── Primary Actions ── */}
           <div className="actions-zone anim-fade-up d3">
 
             {/* Save Contact */}
-            <div className="save-wrap" style={{ padding:0, margin:"0.2rem 0 0" }}>
-              <div className="save-pulse" />
-              <div className="save-pulse save-pulse-2" />
-              <button className="btn btn-save"
-                onClick={(e) => { saveRipple.fire(e); saveContact(); }}
-                onTouchStart={saveRipple.fire}
-                aria-label="Save Contact">
-                <IcoUserPlus />
-                <span className="btn-label">{t.saveContact}</span>
-                {saveRipple.els}
-              </button>
-            </div>
+            <button className="btn btn-save"
+              onClick={(e) => { saveRipple.fire(e); saveContact(); }}
+              onTouchStart={saveRipple.fire}
+              aria-label="Save Contact">
+              <IcoUserPlus />
+              <span className="btn-label">{t.saveContact}</span>
+              {saveRipple.els}
+            </button>
             <p className="save-note">{t.saveCompatibility}</p>
 
-            {/* Call — primary with inline copy */}
-            <div className="btn-group is-call">
-              <a href={`tel:${C.primaryPhone}`} className="btn btn-call"
+            {/* Call */}
+            <div className="btn-group">
+              <a href={`tel:${C.primaryPhone}`} className="btn"
                 onClick={callRipple.fire} onTouchStart={callRipple.fire} aria-label="Call">
                 <IcoPhone size={20} />
-                <span className="btn-label">{t.callPrimary} {C.primaryPhoneDisplay}</span>
+                <span className="btn-label">
+                  {t.callPrimary} <span className="font-serif font-italic text-lg ml-1" style={{ textTransform: 'none', letterSpacing: '0' }}>{C.primaryPhoneDisplay}</span>
+                </span>
                 {callRipple.els}
               </a>
-              <div className="btn-group-sep" />
               <button
                 className={`btn-inline-copy${copiedPhone ? " copied" : ""}`}
                 onClick={copyPhone}
@@ -421,30 +432,22 @@ END:VCARD`;
               </button>
             </div>
 
-            {/* Call — office */}
-            <a href={`tel:${C.secondaryPhone}`} className="btn btn-call btn-call-sm" aria-label="Office">
-              <IcoPhone size={16} />
-              <span className="btn-label btn-label-office">{t.office}</span>
-              <span className="btn-label">{C.secondaryPhoneDisplay}</span>
-            </a>
-
             {/* WhatsApp */}
-            <a href={C.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp"
+            <a href={C.whatsapp} target="_blank" rel="noopener noreferrer" className="btn"
               onClick={waRipple.fire} onTouchStart={waRipple.fire} aria-label="WhatsApp">
               <IcoWA />
               <span className="btn-label">{t.whatsapp}</span>
               {waRipple.els}
             </a>
 
-            {/* Email with inline copy */}
-            <div className="btn-group is-email">
-              <a href={`mailto:${C.email}`} className="btn btn-email"
+            {/* Email */}
+            <div className="btn-group">
+              <a href={`mailto:${C.email}`} className="btn"
                 onClick={emailRipple.fire} onTouchStart={emailRipple.fire} aria-label="Email">
-                <span className="btn-email-label"><IcoMail />{t.email}</span>
-                <span className="btn-email-addr">{C.email}</span>
+                <IcoMail />
+                <span className="btn-label">{t.email}</span>
                 {emailRipple.els}
               </a>
-              <div className="btn-group-sep" />
               <button
                 className={`btn-inline-copy${copiedEmail ? " copied" : ""}`}
                 onClick={copyEmail}
@@ -454,7 +457,7 @@ END:VCARD`;
             </div>
 
             {/* Share */}
-            <button className="btn btn-share"
+            <button className="btn"
               onClick={(e) => { shareRipple.fire(e); shareCard(); }}
               onTouchStart={shareRipple.fire} aria-label="Share this card">
               <IcoShare />
@@ -464,50 +467,44 @@ END:VCARD`;
 
           </div>
 
-          <div className="divider anim-fade-in d4" />
-
           {/* ── Secondary Info ── */}
-          <div className="secondary-zone anim-fade-up d4" style={{ paddingTop:"1.125rem" }}>
+          <div className="secondary-zone anim-fade-up d4">
 
             {/* Websites */}
             <div className="info-block">
-              <span className="section-label">{t.websites}</span>
-              <div style={{ display:"flex", flexDirection:"column", gap:"0.5rem" }}>
-                <a href={C.website1} target="_blank" rel="noopener noreferrer" className="btn-website">
-                  <IcoGlobe />{C.website1Display}
-                  <span className="ext-arrow"><IcoExternal /></span>
-                </a>
-                <a href={C.website2} target="_blank" rel="noopener noreferrer" className="btn-website">
-                  <IcoGlobe />{C.website2Display}
-                  <span className="ext-arrow"><IcoExternal /></span>
-                </a>
-              </div>
+              <span className="label-mono">{t.websites}</span>
+              <a href={C.website1} target="_blank" rel="noopener noreferrer" className="btn-website">
+                <IcoGlobe />{C.website1Display}
+              </a>
             </div>
 
             {/* Address */}
-            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="address-card">
-              <div className="address-icon"><IcoPin /></div>
-              <div>
-                <span className="section-label">{t.wholesales}</span>
-                <p className="address-street">{C.address}</p>
-                <p className="address-city">{C.city}</p>
-                <span className="address-hint">{isIOS ? t.openMapsApple : t.openMapsGoogle}</span>
-              </div>
-            </a>
-
+            <div className="info-block">
+              <span className="label-mono">{t.wholesales}</span>
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="address-card">
+                <div className="address-icon"><IcoPin /></div>
+                <div>
+                  <p className="address-street">{C.address}</p>
+                  <p className="address-city">{C.city}</p>
+                </div>
+              </a>
+            </div>
 
           </div>
 
           {/* ── Footer ── */}
           <div className="footer-zone anim-fade-up d6">
-            <div className="divider" style={{ margin:"0 0 1rem" }} />
             <div className="activity-chips">
-              {C.activities.map(a => <span key={a} className="chip">{a}</span>)}
+              <span className="chip"><IcoCoffee size={14} /> {t.activities[0]}</span>
+              <span className="chip"><IcoMachine size={14} /> {t.activities[1]}</span>
             </div>
-            <p className="footer-tagline">{C.tagline}</p>
+            <p className="footer-tagline letterpress">{t.tagline}</p>
+            
+            {/* Stationery Seal */}
+            <div className="mt-12 flex justify-center opacity-20 grayscale select-none pointer-events-none">
+              <IcoBean size={48} />
+            </div>
           </div>
-
-          <div className="bottom-bar" />
 
         </div>
       </div>
