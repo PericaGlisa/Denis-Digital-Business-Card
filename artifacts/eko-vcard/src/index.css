@@ -477,6 +477,10 @@ body {
   }
 }
 
+.phone-display-text {
+  font-size: 1.1rem;
+}
+
 /* Very small devices (iPhone SE, etc.) */
 @media (max-width: 370px) {
   .card-wrap {
@@ -493,19 +497,24 @@ body {
   
   .btn {
     height: 52px;
-    padding: 0 0.75rem;
-    gap: 0.4rem;
+    padding: 0 0.5rem;
+    gap: 0.3rem;
   }
   
   .btn-label {
-    font-size: 0.7rem;
-    letter-spacing: 0;
+    font-size: 0.65rem;
+    letter-spacing: -0.01em;
   }
   
-  .btn-label span {
-    font-size: 0.9rem !important;
+  .phone-display-text {
+    font-size: 0.85rem !important;
   }
   
+  .btn-inline-copy {
+    width: 48px;
+    height: 52px;
+  }
+
   .secondary-zone {
     padding: 2rem 1.5rem;
   }

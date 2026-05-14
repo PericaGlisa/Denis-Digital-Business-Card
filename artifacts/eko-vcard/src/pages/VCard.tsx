@@ -420,7 +420,7 @@ END:VCARD`;
                 onClick={callRipple.fire} onTouchStart={callRipple.fire} aria-label="Call">
                 <IcoPhone size={20} />
                 <span className="btn-label">
-                  {t.callPrimary} <span className="font-serif font-italic text-lg ml-1" style={{ textTransform: 'none', letterSpacing: '0' }}>{C.primaryPhoneDisplay}</span>
+                  {t.callPrimary} <span className="font-serif font-italic ml-1 phone-display-text" style={{ textTransform: 'none', letterSpacing: '0' }}>{C.primaryPhoneDisplay}</span>
                 </span>
                 {callRipple.els}
               </a>
